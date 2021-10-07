@@ -1,17 +1,27 @@
+import { useState } from "react";
+import SettingsNavButtons from "./SettingsNav/Buttons";
+
 const Builder = () => {
+  const [activeNav, setActiveNav] = useState('Buttons');
   return (
     <section className="builder">
       <div className="builder__nav">
-        <button className="builder__nav-item">
+        <button className={`builder__nav-item ${activeNav === 'Buttons' && 'active'}`} onClick={() => setActiveNav('Buttons')}>
           Buttons
+        </button>
+        <button className={`builder__nav-item ${activeNav === 'Inputs' && 'active'}`} onClick={() => setActiveNav('Inputs')}>
+          Inputs
+        </button>
+        <button className={`builder__nav-item ${activeNav === 'Text' && 'active'}`} onClick={() => setActiveNav('Text')}>
+          Text
         </button>
       </div>
       <div className="builder__container">
         <div className="builder__settings">
-          Setting
+          <SettingsNavButtons />
         </div>
         <div className="builder__wrapper">
-          <div className="builder__aside">
+          <div className="builder__wrapper-aside">
             <div className="builder__wrapper-nav">
               <button className="builder__wrapper-nav-item active">
                 Effects
@@ -21,7 +31,7 @@ const Builder = () => {
               Aside
             </div>
           </div>
-          <div className="builder__box">
+          <div className="builder__wrapper-view">
             <div className="builder__wrapper-nav">
                 <button className="builder__wrapper-nav-item active">
                   View

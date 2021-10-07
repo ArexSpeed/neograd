@@ -1,0 +1,130 @@
+@import 'Var';
+.settingsNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  &__title {
+    font-size: 16px;
+    text-align: left;
+    width: 100%;
+  }
+  &__span {
+    padding: 0 4px;
+  }
+  &__input {
+    width: 75px;
+    height: 20px;
+    border-radius: 4px;
+    background: #2D2932;
+    color: #ffffff;
+    border: none;
+    font-family: $fontFamily;
+    text-align: center;
+    &.border {
+      &-radiusTL {
+        border-top: 3px solid #790e8b;
+        border-left: 3px solid #790e8b;
+        border-radius: 12px 4px 4px 4px;
+      }
+      &-radiusTR {
+        border-top: 3px solid #790e8b;
+        border-right: 3px solid #790e8b;
+        border-radius: 4px 12px 4px 4px;
+      }
+      &-radiusBR {
+        border-bottom: 3px solid #790e8b;
+        border-right: 3px solid #790e8b;
+        border-radius: 4px 4px 12px 4px;
+      }
+      &-radiusBL {
+        border-bottom: 3px solid #790e8b;
+        border-left: 3px solid #790e8b;
+        border-radius: 4px 4px 4px 12px;
+      }
+      &-top {
+        border-top: 3px solid #790e8b;
+      }
+      &-right {
+        border-right: 3px solid #790e8b;
+      }
+      &-bottom {
+        border-bottom: 3px solid #790e8b;
+      }
+      &-left {
+        border-left: 3px solid #790e8b;
+      }
+    }
+  }
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 20px;
+    margin-right: 4px;
+    font-size: 12px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background: #2D2932;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: $fontFamily;
+    &:hover {
+      background: #790e8b;
+    }
+    &.border-solid {
+      border: 2px solid #790e8b;
+    }
+    &.border-groove {
+      border: 2px groove #790e8b;
+    }
+    &.border-double {
+      border: 2px double #790e8b;
+    }
+    &.border-dotted {
+      border: 2px dotted #790e8b;
+    }
+    &.border-dashed {
+      border: 2px dashed #790e8b;
+    }
+    &.border-ridge {
+      border: 2px ridge #790e8b;
+    }
+  }
+};
+
+.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: auto;
+  height: 100%;
+  padding: 8px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 4px;
+}
+
+input[type="color"] {
+	-webkit-appearance: none;
+	border: none;
+	width: 48px;
+	height: 24px;
+  outline: none;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+}
