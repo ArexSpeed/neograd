@@ -1,5 +1,7 @@
 import { useState } from "react";
+import EffectsButtons from "./Effects/EffectsButtons";
 import SettingsNavButtons from "./SettingsNav/Buttons";
+import ViewButton from "./ViewCode/ViewButton";
 
 const Builder = () => {
   const [activeNav, setActiveNav] = useState('Buttons');
@@ -28,7 +30,7 @@ const Builder = () => {
               </button>
             </div>
             <div className="builder__wrapper-container">
-              Aside
+              <EffectsButtons />
             </div>
           </div>
           <div className="builder__wrapper-view">
@@ -47,7 +49,7 @@ const Builder = () => {
                 </button>
               </div>
               <div className="builder__wrapper-container">
-                Button
+                <ViewButton />
               </div>
           </div>
         </div>

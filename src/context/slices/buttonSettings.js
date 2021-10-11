@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 
 const initialState = {
+  name: 'normal',
   sizes: {
     width: 150,
     height: 50
@@ -31,6 +32,9 @@ export const slice = createSlice({
   name: 'buttonSettings',
   initialState,
   reducers: {
+    setButtonName: (state, action) => {
+      state.name = action.payload; 
+    },
     setSizes: (state, action) => {
       state.sizes[action.payload.type] = action.payload.value; 
     },
@@ -61,7 +65,7 @@ export const slice = createSlice({
 });
 
 export const {
-  setSizes, setAllSizes, setRadius, setAllRadius, setColors, setBorder
+  setButtonName, setSizes, setAllSizes, setRadius, setAllRadius, setColors, setBorder
 } = slice.actions;
 
 export const getButtonSettings = state => state.buttonSettings;
