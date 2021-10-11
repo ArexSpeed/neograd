@@ -16,7 +16,7 @@ const initialState = {
   colors: {
     bg: '#07020dbf',
     c1: '#790e8b',
-    c2: ''
+    c2: '#790e8b'
   },
   border: {
     type: 'none',
