@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { getButtonSettings, setButtonName } from '../../context/slices/buttonSettings';
 
-import { BehindBorderButton ,BehindShadowButton,BorderMoveButton, BorderMoveLightButton, GradientButton, GradientRadialButton, NeogradButton, NeogradReverseButton, NeonBorderButton, NeonButton, NeonReflexButton, NormalButton, NormalHoverButton, SlideCircleButton, SlideDownButton, SlideLeftButton, SlideRightButton, SlideUpButton } from '../styled/Buttons.styled';
+import { BehindBorderButton ,BehindShadowButton,BorderMoveButton, BorderMoveLightButton, GradientButton, GradientRadialButton, HalfMoveButton, HideBorderButton, NeogradButton, NeogradReverseButton, NeonBorderButton, NeonButton, NeonReflexButton, NormalButton, NormalHoverButton, SlideCircleButton, SlideDownButton, SlideLeftButton, SlideRightButton, SlideUpButton, SurroundBorderButton } from '../styled/Buttons.styled';
 
 const EffectsButtons = () => {
   const dispatch = useDispatch();
@@ -210,6 +210,33 @@ const EffectsButtons = () => {
          >
           Shadow
         </BehindShadowButton>
+        <HideBorderButton
+          bgPrimary={button.colors.c1} 
+          bgSecondary={button.colors.c2} 
+          width="150px"
+          height="50px"
+          onClick={() => dispatch(setButtonName('hide-border'))}
+        >
+          Hide
+        </HideBorderButton>
+        <SurroundBorderButton
+          bgPrimary={button.colors.c1} 
+          bgSecondary={button.colors.c2} 
+          width="150px"
+          height="50px"
+          onClick={() => dispatch(setButtonName('surround-border'))}
+        >
+          Surround
+        </SurroundBorderButton>
+        <HalfMoveButton
+          bgPrimary={button.colors.c1} 
+          bgSecondary={button.colors.c2} 
+          width="150px"
+          height="50px"
+          onClick={() => dispatch(setButtonName('half-move'))}
+        >
+          Move
+        </HalfMoveButton>
     </div>
   )
 }

@@ -525,5 +525,111 @@ export const BehindShadowButton = styled.button`
       box-shadow: 0 0 20px ${({ bgPrimary }) => bgPrimary};
     }
   }
-`
+`;
 
+export const HideBorderButton = styled.button`
+  background: transparent;
+  border: none;
+  line-height: 50px;
+  width: ${({ width }) => width || '150px'};
+  height: ${({ height }) => height || '50px'};
+  color: ${({ bgPrimary }) => bgPrimary};
+  transition: all 0.35s ease-in;
+  cursor: pointer;
+  &:after,
+  &:before {
+    border: 1px solid ${({ bgPrimary }) => bgPrimary};
+    bottom: 0px;
+    content: " ";
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    transition: all 280ms ease-in-out;
+    width: 0;
+  }
+
+  &:hover:after,
+  &:hover:before {
+    border-color: ${({ bgPrimary }) => bgPrimary};
+    transition: width 350ms ease-in-out;
+    width: 100%;
+  }
+
+  &:hover:before {
+    bottom: auto;
+    top: 0;
+    width: 100%;
+  }
+`;
+
+export const SurroundBorderButton = styled.button`
+  position: relative;
+  background: ${({ bgPrimary }) => bgPrimary};
+  width: ${({ width }) => width || '150px'};
+  height: ${({ height }) => height || '50px'};
+  border-radius: ${({ radius }) => radius || '4px'};
+  border: none;
+  cursor: pointer;
+  &::before {
+    position: absolute;
+    content: "";
+    border-radius: inherit;
+    width: 0;
+    height: 0;
+    border: 5px solid ${({ bgPrimary }) => bgPrimary};
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.3s ease-in-out 0s;
+  }
+  &:hover::before {
+    opacity: 1;
+    width: 115%;
+    height: 130%;
+  }
+`;
+
+export const HalfMoveButton = styled.button`
+  position: relative;
+  margin: 0 auto;
+  background: transparent;
+  outline: none;
+  border: none;
+  color: #fff;
+  width: ${({ width }) => width || '150px'};
+  height: ${({ height }) => height || '50px'};
+  border-radius: ${({ radius }) => radius || '4px'};
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    transform: skewX(30deg);
+    transition: all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    background: ${({ bgPrimary }) => bgPrimary};
+    z-index: -2;
+  }
+  &::before {
+    top: -20%;
+    left: 0rem;
+  }
+  &::after {
+    top: 20%;
+    left: 50%;
+  }
+  &:hover {
+    &::before,
+    &::after {
+      top: 0;
+      transform: skewx(0deg);
+    }
+    &::after {
+      left: 0;
+    }
+    &::before {
+      left: 50%;
+    }
+  }
+`
