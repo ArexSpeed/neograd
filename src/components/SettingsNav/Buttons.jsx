@@ -169,7 +169,7 @@ const SettingsNavButtons = () => {
           <input
             type="color"
             defaultValue={button.colors.bg}
-            onChange={(e) =>
+            onBlur={(e) =>
               dispatch(setColors({ type: "bg", value: e.target.value }))
             }
           />
@@ -179,7 +179,7 @@ const SettingsNavButtons = () => {
           <input
             type="color"
             defaultValue={button.colors.c1}
-            onChange={(e) =>
+            onBlur={(e) =>
               dispatch(setColors({ type: "c1", value: e.target.value }))
             }
           />
@@ -189,7 +189,7 @@ const SettingsNavButtons = () => {
           <input
             type="color"
             defaultValue={button.colors.c2}
-            onChange={(e) =>
+            onBlur={(e) =>
               dispatch(setColors({ type: "c2", value: e.target.value }))
             }
           />
