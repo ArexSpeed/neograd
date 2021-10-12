@@ -1,6 +1,5 @@
 import Hero from './components/Hero';
 import Builder from './components/Builder';
-import ColorPallete from './components/SettingsNav/ColorPallete';
 
 function App() {
   return (
@@ -8,7 +7,6 @@ function App() {
       
       <Hero />
       <Builder />
-      {/* <ColorPallete /> */}
     </div>
   );
 }

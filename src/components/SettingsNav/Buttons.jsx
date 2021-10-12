@@ -7,6 +7,7 @@ const SettingsNavButtons = () => {
   const dispatch = useDispatch();
   const button = useSelector(getButtonSettings);
   const [openPallete1, setOpenPallete1] = useState(false);
+  const [openPallete2, setOpenPallete2] = useState(false);
 
   return (
     <div className="settingsNav">
@@ -203,12 +204,13 @@ const SettingsNavButtons = () => {
                 dispatch(setColors({ type: "c2", value: e.target.value }))
               }
             />
-            <svg className="color-icon" fill={button.colors.c2} viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clipRule="evenodd" /></svg>
+            <svg className="color-icon" onClick={() => setOpenPallete2(!openPallete2)} fill={button.colors.c2} viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clipRule="evenodd" /></svg>
             <svg className="color-icon" fill="red" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" /></svg>
             </td>
           </tr>
         </table>
-        {openPallete1 && (<ColorPallete setOpenPallete={setOpenPallete1} />)}
+        {openPallete1 && (<ColorPallete type='c1' setOpenPallete={setOpenPallete1} />)}
+        {openPallete2 && (<ColorPallete type='c2' setOpenPallete={setOpenPallete2} />)}
       </section>
       {/* Border */}
       <section className="col">

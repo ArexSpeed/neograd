@@ -1,3 +1,6 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { setColors } from '../../context/slices/buttonSettings';
+
 const colors = [
 ['#b0ff57', '#76ff03', '#32cb00', '#00feca'],
 ['#75a7ff', '#2979ff', '#004ecb', '#45f3ff'],
@@ -13,9 +16,13 @@ const colors = [
 ['#e0ab76', '#a52a2a', '#442424', '#c3732a'],
 ]
 
-const ColorPallete = ({ setOpenPallete }) => {
+const ColorPallete = ({ type, setOpenPallete }) => {
+  const dispatch = useDispatch();
   return (
     <div className="pallete">
+      <div className="pallete__close">
+        <svg className="color-icon" onClick={() => setOpenPallete(false)} fill="red" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" /></svg>
+      </div>
       <table className="pallete__table">
         <thead>
           <tr>
@@ -28,10 +35,46 @@ const ColorPallete = ({ setOpenPallete }) => {
         <tbody>
           {colors.map((color,i) => (
             <tr key={i}>
-              <td><button className="pallete__color" style={{ background: color[0]}} onClick={() => setOpenPallete(false)}></button></td>
-              <td><button className="pallete__color" style={{ background: color[1]}} onClick={() => setOpenPallete(false)}></button></td>
-              <td><button className="pallete__color" style={{ background: color[2]}} onClick={() => setOpenPallete(false)}></button></td>
-              <td><button className="pallete__color" style={{ background: color[3]}} onClick={() => setOpenPallete(false)}></button></td>
+              <td>
+                <button 
+                  className="pallete__color" 
+                  style={{ background: color[0]}} 
+                  onClick={() => {
+                    dispatch(setColors({type, value: color[0]}));
+                    setOpenPallete(false);
+                  }}
+                  ></button>
+                </td>
+                <td>
+                <button 
+                  className="pallete__color" 
+                  style={{ background: color[1]}} 
+                  onClick={() => {
+                    dispatch(setColors({type, value: color[1]}));
+                    setOpenPallete(false);
+                  }}
+                  ></button>
+                </td>
+                <td>
+                <button 
+                  className="pallete__color" 
+                  style={{ background: color[2]}} 
+                  onClick={() => {
+                    dispatch(setColors({type, value: color[2]}));
+                    setOpenPallete(false);
+                  }}
+                  ></button>
+                </td>
+                <td>
+                <button 
+                  className="pallete__color" 
+                  style={{ background: color[3]}} 
+                  onClick={() => {
+                    dispatch(setColors({type, value: color[3]}));
+                    setOpenPallete(false);
+                  }}
+                  ></button>
+                </td>
             </tr>
           )) }
         </tbody>
