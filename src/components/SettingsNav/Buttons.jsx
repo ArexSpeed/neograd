@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getButtonSettings, setSizes, setAllSizes, setRadius, setAllRadius, setColors, setBorder } from '../../context/slices/buttonSettings';
+import ColorPallete from './ColorPallete';
 
 const SettingsNavButtons = () => {
   const dispatch = useDispatch();
   const button = useSelector(getButtonSettings);
+  const [openPallete1, setOpenPallete1] = useState(false);
 
   return (
     <div className="settingsNav">
@@ -164,44 +167,48 @@ const SettingsNavButtons = () => {
       {/* Colors */}
       <section className="col">
         <div className="settingsNav__title">Colors</div>
-        <div className="row">
-          <span className="settingsNav__span">Bg</span>
-          <input
-            type="color"
-            defaultValue={button.colors.bg}
-            onBlur={(e) =>
-              dispatch(setColors({ type: "bg", value: e.target.value }))
-            }
-          />
-        </div>
-        <div className="row">
-          <span className="settingsNav__span">C1</span>
-          <input
-            type="color"
-            defaultValue={button.colors.c1}
-            onBlur={(e) =>
-              dispatch(setColors({ type: "c1", value: e.target.value }))
-            }
-          />
-        </div>
-        <div className="row">
-          <span className="settingsNav__span">C2</span>
-          <input
-            type="color"
-            defaultValue={button.colors.c2}
-            onBlur={(e) =>
-              dispatch(setColors({ type: "c2", value: e.target.value }))
-            }
-          />
-        </div>
-      </section>
-      {/* Gradient */}
-      <section className="col">
-        <div className="settingsNav__title">Gradient</div>
-        <div className="row">
-          <span className="settingsNav__span">G</span>
-          <input type="color" />
-        </div>
+        <table className="settingsNav__table">
+          <tr>
+            <td>ViewBg</td>
+            <td>
+              <input
+              type="color"
+              defaultValue={button.colors.bg}
+              onBlur={(e) =>
+                dispatch(setColors({ type: "bg", value: e.target.value }))
+              }
+            />
+            </td>
+          </tr>
+          <tr>
+            <td>Btn col</td>
+            <td>
+              <input
+              type="color"
+              defaultValue={button.colors.c1}
+              onBlur={(e) =>
+                dispatch(setColors({ type: "c1", value: e.target.value }))
+              }
+              />
+              <svg className="color-icon" onClick={() => setOpenPallete1(!openPallete1)} fill={button.colors.c1} viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clipRule="evenodd" /></svg>
+            </td>
+          </tr>
+          <tr>
+            <td>2nd col</td>
+            <td>
+              <input
+              type="color"
+              defaultValue={button.colors.c2}
+              onBlur={(e) =>
+                dispatch(setColors({ type: "c2", value: e.target.value }))
+              }
+            />
+            <svg className="color-icon" fill={button.colors.c2} viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clipRule="evenodd" /></svg>
+            <svg className="color-icon" fill="red" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" /></svg>
+            </td>
+          </tr>
+        </table>
+        {openPallete1 && (<ColorPallete setOpenPallete={setOpenPallete1} />)}
       </section>
       {/* Border */}
       <section className="col">
@@ -310,7 +317,7 @@ const SettingsNavButtons = () => {
         </div>
       </section>
       {/* check values */}
-      <section className="col">
+      {/* <section className="col">
         <p>W: {button.sizes.width}</p>
         <p>H: {button.sizes.height}</p>
         <p>Radius</p>
@@ -351,7 +358,7 @@ const SettingsNavButtons = () => {
         <span>{button.border.right}</span>
         <span>{button.border.bottom}</span>
         <span>{button.border.left}</span>
-      </section>
+      </section> */}
     </div>
   );
 }
