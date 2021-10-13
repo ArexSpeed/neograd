@@ -17,6 +17,9 @@
       color: #fff;
       outline: none;
       cursor: pointer;
+      &:hover {
+        color: #790e8b;
+      }
     }
   }
   &__span {
@@ -32,6 +35,10 @@
     font-family: $fontFamily;
     text-align: center;
     &.border {
+      &-radiusAll {
+        border: 3px solid #790e8b;
+        border-radius: 8px;
+      }
       &-radiusTL {
         border-top: 3px solid #790e8b;
         border-left: 3px solid #790e8b;
@@ -51,6 +58,9 @@
         border-bottom: 3px solid #790e8b;
         border-left: 3px solid #790e8b;
         border-radius: 4px 4px 4px 12px;
+      }
+      &-all {
+        border: 3px solid #790e8b;
       }
       &-top {
         border-top: 3px solid #790e8b;

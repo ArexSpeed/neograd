@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getButtonSettings, setSizes, setAllSizes, setRadius, setAllRadius, setColors, setBorder } from '../../context/slices/buttonSettings';
+import { getButtonSettings, setSizes, setAllSizes, setRadius, setAllRadius, setColors, setBorder, setAllBorder } from '../../context/slices/buttonSettings';
 import ColorPallete from './ColorPallete';
 
 const SettingsNavButtons = () => {
@@ -10,6 +10,7 @@ const SettingsNavButtons = () => {
   const [openPallete2, setOpenPallete2] = useState(false);
   const [inputColor1, setInputColor1] = useState(button.colors.c1);
   const [inputColor2, setInputColor2] = useState(button.colors.c2);
+  const [radiusOption, setRadiusOption] = useState('Spec');
   const [borderOption, setBorderOption] = useState('Spec');
 
   //useEffect for setInput cause if add only onChange or onBlur then after clicking on pallete the value did not change, and just onChange is working very slow cause all items have to change
@@ -92,47 +93,75 @@ const SettingsNavButtons = () => {
       </section>
       {/* Radius */}
       <section className="col">
-        <div className="settingsNav__title">Radius</div>
-        <div className="row">
-          <span className="settingsNav__span">T</span>
-          <input
-            type="number"
-            className="settingsNav__input border-radiusTL"
-            value={button.radius.top}
-            onChange={(e) =>
-              dispatch(setRadius({ type: "top", value: e.target.value }))
-            }
-          />
-          <span className="settingsNav__span">R</span>
-          <input
-            type="number"
-            className="settingsNav__input border-radiusTR"
-            value={button.radius.right}
-            onChange={(e) =>
-              dispatch(setRadius({ type: "right", value: e.target.value }))
-            }
-          />
+        <div className="settingsNav__title">
+          Radius
+          <button
+            className="settingsNav__title-button"
+            onClick={() => setRadiusOption("All")}
+          >
+            All
+          </button>
+          <button
+            className="settingsNav__title-button"
+            onClick={() => setRadiusOption("Spec")}
+          >
+            Spec
+          </button>
         </div>
-        <div className="row">
-          <span className="settingsNav__span">L</span>
-          <input
-            type="number"
-            className="settingsNav__input border-radiusBL"
-            value={button.radius.left}
-            onChange={(e) =>
-              dispatch(setRadius({ type: "left", value: e.target.value }))
-            }
-          />
-          <span className="settingsNav__span">B</span>
-          <input
-            type="number"
-            className="settingsNav__input border-radiusBR"
-            value={button.radius.bottom}
-            onChange={(e) =>
-              dispatch(setRadius({ type: "bottom", value: e.target.value }))
-            }
-          />
-        </div>
+        {radiusOption === "All" ? (
+          <div className="row">
+            <span className="settingsNav__span">W</span>
+            <input
+              type="number"
+              className="settingsNav__input border-radiusAll"
+              value={button.radius.top}
+              onChange={(e) => dispatch(setAllRadius(e.target.value))}
+            />
+          </div>
+        ) : (
+          <>
+            <div className="row">
+              <span className="settingsNav__span">T</span>
+              <input
+                type="number"
+                className="settingsNav__input border-radiusTL"
+                value={button.radius.top}
+                onChange={(e) =>
+                  dispatch(setRadius({ type: "top", value: e.target.value }))
+                }
+              />
+              <span className="settingsNav__span">R</span>
+              <input
+                type="number"
+                className="settingsNav__input border-radiusTR"
+                value={button.radius.right}
+                onChange={(e) =>
+                  dispatch(setRadius({ type: "right", value: e.target.value }))
+                }
+              />
+            </div>
+            <div className="row">
+              <span className="settingsNav__span">L</span>
+              <input
+                type="number"
+                className="settingsNav__input border-radiusBL"
+                value={button.radius.left}
+                onChange={(e) =>
+                  dispatch(setRadius({ type: "left", value: e.target.value }))
+                }
+              />
+              <span className="settingsNav__span">B</span>
+              <input
+                type="number"
+                className="settingsNav__input border-radiusBR"
+                value={button.radius.bottom}
+                onChange={(e) =>
+                  dispatch(setRadius({ type: "bottom", value: e.target.value }))
+                }
+              />
+            </div>
+          </>
+        )}
         <div className="col">
           <div className="row">
             <button
@@ -271,19 +300,27 @@ const SettingsNavButtons = () => {
       <section className="col">
         <div className="settingsNav__title">
           Border
-          <button className="settingsNav__title-button" onClick={() => setBorderOption('All')}>All</button>
-          <button className="settingsNav__title-button" onClick={() => setBorderOption('Spec')}>Spec</button>
+          <button
+            className="settingsNav__title-button"
+            onClick={() => setBorderOption("All")}
+          >
+            All
+          </button>
+          <button
+            className="settingsNav__title-button"
+            onClick={() => setBorderOption("Spec")}
+          >
+            Spec
+          </button>
         </div>
         {borderOption === "All" ? (
           <div className="row">
             <span className="settingsNav__span">W</span>
             <input
               type="number"
-              className="settingsNav__input border-top"
+              className="settingsNav__input border-all"
               value={button.border.top}
-              onChange={(e) =>
-                dispatch(setBorder({ type: "top", value: e.target.value }))
-              }
+              onChange={(e) => dispatch(setAllBorder(e.target.value))}
             />
           </div>
         ) : (

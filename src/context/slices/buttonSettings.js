@@ -61,11 +61,20 @@ export const slice = createSlice({
     setBorder: (state, action) => {
       state.border[action.payload.type] = action.payload.value; 
     },
+    setAllBorder: (state, action) => {
+      state.border = {
+        type: 'solid',
+        top: action.payload,
+        right: action.payload,
+        bottom: action.payload,
+        left: action.payload,
+      }
+    }
   },
 });
 
 export const {
-  setButtonName, setSizes, setAllSizes, setRadius, setAllRadius, setColors, setBorder
+  setButtonName, setSizes, setAllSizes, setRadius, setAllRadius, setColors, setBorder, setAllBorder
 } = slice.actions;
 
 export const getButtonSettings = state => state.buttonSettings;
