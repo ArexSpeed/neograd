@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getButtonSettings, setSizes, setAllSizes, setRadius, setAllRadius, setColors, setBorder } from '../../context/slices/buttonSettings';
 import ColorPallete from './ColorPallete';
@@ -8,6 +8,17 @@ const SettingsNavButtons = () => {
   const button = useSelector(getButtonSettings);
   const [openPallete1, setOpenPallete1] = useState(false);
   const [openPallete2, setOpenPallete2] = useState(false);
+  const [inputColor1, setInputColor1] = useState(button.colors.c1);
+  const [inputColor2, setInputColor2] = useState(button.colors.c2);
+  const [borderOption, setBorderOption] = useState('Spec');
+
+  //useEffect for setInput cause if add only onChange or onBlur then after clicking on pallete the value did not change, and just onChange is working very slow cause all items have to change
+  useEffect(() => {
+    setInputColor1(button.colors.c1)
+  }, [button.colors.c1]);
+  useEffect(() => {
+    setInputColor2(button.colors.c2)
+  }, [button.colors.c2]);
 
   return (
     <div className="settingsNav">
@@ -173,88 +184,153 @@ const SettingsNavButtons = () => {
             <td>ViewBg</td>
             <td>
               <input
-              type="color"
-              defaultValue={button.colors.bg}
-              onBlur={(e) =>
-                dispatch(setColors({ type: "bg", value: e.target.value }))
-              }
-            />
+                type="color"
+                defaultValue={button.colors.bg}
+                onBlur={(e) =>
+                  dispatch(setColors({ type: "bg", value: e.target.value }))
+                }
+              />
             </td>
           </tr>
           <tr>
             <td>Btn col</td>
             <td>
               <input
-              type="color"
-              defaultValue={button.colors.c1}
-              onBlur={(e) =>
-                dispatch(setColors({ type: "c1", value: e.target.value }))
-              }
+                type="color"
+                value={inputColor1}
+                onChange={(e) => setInputColor1(e.target.value)}
+                onBlur={(e) =>
+                  dispatch(setColors({ type: "c1", value: e.target.value }))
+                }
               />
-              <svg className="color-icon" onClick={() => setOpenPallete1(!openPallete1)} fill={button.colors.c1} viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clipRule="evenodd" /></svg>
+              <svg
+                className="color-icon"
+                onClick={() => setOpenPallete1(!openPallete1)}
+                fill={button.colors.c1}
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z"
+                  clipRule="evenodd"
+                />
+              </svg>
             </td>
           </tr>
           <tr>
             <td>2nd col</td>
             <td>
               <input
-              type="color"
-              defaultValue={button.colors.c2}
-              onBlur={(e) =>
-                dispatch(setColors({ type: "c2", value: e.target.value }))
-              }
-            />
-            <svg className="color-icon" onClick={() => setOpenPallete2(!openPallete2)} fill={button.colors.c2} viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clipRule="evenodd" /></svg>
-            <svg className="color-icon" fill="red" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" /></svg>
+                type="color"
+                value={inputColor2}
+                onChange={(e) => setInputColor2(e.target.value)}
+                onBlur={(e) =>
+                  dispatch(setColors({ type: "c2", value: e.target.value }))
+                }
+              />
+              <svg
+                className="color-icon"
+                onClick={() => setOpenPallete2(!openPallete2)}
+                fill={button.colors.c2}
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <svg
+                className="color-icon"
+                onClick={() =>
+                  dispatch(setColors({ type: "c2", value: button.colors.c1 }))
+                }
+                fill="white"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
             </td>
           </tr>
         </table>
-        {openPallete1 && (<ColorPallete type='c1' setOpenPallete={setOpenPallete1} />)}
-        {openPallete2 && (<ColorPallete type='c2' setOpenPallete={setOpenPallete2} />)}
+        {openPallete1 && (
+          <ColorPallete type="c1" setOpenPallete={setOpenPallete1} />
+        )}
+        {openPallete2 && (
+          <ColorPallete type="c2" setOpenPallete={setOpenPallete2} />
+        )}
       </section>
       {/* Border */}
       <section className="col">
-        <div className="settingsNav__title">Border</div>
-        <div className="row">
-          <span className="settingsNav__span">T</span>
-          <input
-            type="number"
-            className="settingsNav__input border-top"
-            value={button.border.top}
-            onChange={(e) =>
-              dispatch(setBorder({ type: "top", value: e.target.value }))
-            }
-          />
-          <span className="settingsNav__span">R</span>
-          <input
-            type="number"
-            className="settingsNav__input border-right"
-            value={button.border.right}
-            onChange={(e) =>
-              dispatch(setBorder({ type: "right", value: e.target.value }))
-            }
-          />
+        <div className="settingsNav__title">
+          Border
+          <button className="settingsNav__title-button" onClick={() => setBorderOption('All')}>All</button>
+          <button className="settingsNav__title-button" onClick={() => setBorderOption('Spec')}>Spec</button>
         </div>
-        <div className="row">
-          <span className="settingsNav__span">B</span>
-          <input
-            type="number"
-            className="settingsNav__input border-bottom"
-            value={button.border.bottom}
-            onChange={(e) =>
-              dispatch(setBorder({ type: "bottom", value: e.target.value }))
-            }
-          />
-          <span className="settingsNav__span">L</span>
-          <input
-            type="number"
-            className="settingsNav__input border-top"
-            value={button.border.left}
-            onChange={(e) =>
-              dispatch(setBorder({ type: "left", value: e.target.value }))
-            }
-          />
-        </div>
+        {borderOption === "All" ? (
+          <div className="row">
+            <span className="settingsNav__span">W</span>
+            <input
+              type="number"
+              className="settingsNav__input border-top"
+              value={button.border.top}
+              onChange={(e) =>
+                dispatch(setBorder({ type: "top", value: e.target.value }))
+              }
+            />
+          </div>
+        ) : (
+          <>
+            <div className="row">
+              <span className="settingsNav__span">T</span>
+              <input
+                type="number"
+                className="settingsNav__input border-top"
+                value={button.border.top}
+                onChange={(e) =>
+                  dispatch(setBorder({ type: "top", value: e.target.value }))
+                }
+              />
+              <span className="settingsNav__span">R</span>
+              <input
+                type="number"
+                className="settingsNav__input border-right"
+                value={button.border.right}
+                onChange={(e) =>
+                  dispatch(setBorder({ type: "right", value: e.target.value }))
+                }
+              />
+            </div>
+            <div className="row">
+              <span className="settingsNav__span">B</span>
+              <input
+                type="number"
+                className="settingsNav__input border-bottom"
+                value={button.border.bottom}
+                onChange={(e) =>
+                  dispatch(setBorder({ type: "bottom", value: e.target.value }))
+                }
+              />
+              <span className="settingsNav__span">L</span>
+              <input
+                type="number"
+                className="settingsNav__input border-top"
+                value={button.border.left}
+                onChange={(e) =>
+                  dispatch(setBorder({ type: "left", value: e.target.value }))
+                }
+              />
+            </div>
+          </>
+        )}
+
         <div className="col">
           <div className="row">
             <button

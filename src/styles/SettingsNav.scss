@@ -10,6 +10,14 @@
     font-size: 16px;
     text-align: left;
     width: 100%;
+    &-button {
+      padding: 2px 4px;
+      border: none;
+      background: #2D2932;
+      color: #fff;
+      outline: none;
+      cursor: pointer;
+    }
   }
   &__span {
     padding: 0 4px;

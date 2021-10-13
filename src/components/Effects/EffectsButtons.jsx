@@ -121,9 +121,9 @@ const EffectsButtons = () => {
           bgSecondary={button.colors.c2} 
           width="150px"
           height="50px"
-          borderStyle={`${button.border.type}`}
-          border={`${button.border.top}px ${button.border.right}px ${button.border.bottom}px ${button.border.left}px`}
-          radius={`${button.radius.top}px ${button.radius.right}px ${button.radius.bottom}px ${button.radius.left}px`}
+          borderStyle={`${button.border.type !== 'none' ? button.border.type : 'solid'}`}
+          border={`2px`}
+          radius={`0px`}
           onClick={() => dispatch(setButtonName('border-move'))}
         >
           Move
@@ -133,9 +133,9 @@ const EffectsButtons = () => {
           bgSecondary={button.colors.c2} 
           width="150px"
           height="50px"
-          borderStyle={`${button.border.type}`}
-          border={`${button.border.top}px ${button.border.right}px ${button.border.bottom}px ${button.border.left}px`}
-          radius={`${button.radius.top}px ${button.radius.right}px ${button.radius.bottom}px ${button.radius.left}px`}
+          borderStyle={`${button.border.type !== 'none' ? button.border.type : 'solid'}`}
+          border={`2px`}
+          radius={`0px`}
           onClick={() => dispatch(setButtonName('border-move-light'))}
         >
           Move
