@@ -76,7 +76,7 @@ const EffectsButtons = () => {
           borderStyle={`${button.border.type}`}
           border={`${button.border.top}px ${button.border.right}px ${button.border.bottom}px ${button.border.left}px`}
           radius={`${button.radius.top}px ${button.radius.right}px ${button.radius.bottom}px ${button.radius.left}px`}
-          onClick={() => dispatch(setButtonName('gradient'))}
+          onClick={() => dispatch(setButtonName('gradient-radial'))}
         >
           Radial
         </GradientRadialButton>

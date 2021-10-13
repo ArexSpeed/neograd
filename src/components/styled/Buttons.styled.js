@@ -530,7 +530,7 @@ export const BehindShadowButton = styled.button`
 export const HideBorderButton = styled.button`
   background: transparent;
   border: none;
-  line-height: 50px;
+  line-height: ${({ height }) => height || '50px'};
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
   color: ${({ bgPrimary }) => bgPrimary};
@@ -600,6 +600,7 @@ export const HalfMoveButton = styled.button`
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
   border-radius: ${({ radius }) => radius || '4px'};
+  z-index: 1;
   &::after,
   &::before {
     content: "";
@@ -609,7 +610,7 @@ export const HalfMoveButton = styled.button`
     transform: skewX(30deg);
     transition: all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
     background: ${({ bgPrimary }) => bgPrimary};
-    z-index: -2;
+    z-index: -1;
   }
   &::before {
     top: -20%;
