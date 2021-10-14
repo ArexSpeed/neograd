@@ -16,10 +16,10 @@ export const NormalHoverButton = styled.button`
   color: ${({ bgPrimary }) => bgPrimary};
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
-  border-color: ${({ bgPrimary }) => bgPrimary || '#fff'};
-  border-radius: ${({ radius }) => radius || '4px'};
-  border-style: ${({ borderStyle }) => borderStyle || 'none'};
   border: ${({ border }) => border || '0px'};
+  border-color: ${({ bgPrimary }) => bgPrimary || '#fff'};
+  border-style: ${({ borderStyle }) => borderStyle || 'none'};
+  border-radius: ${({ radius }) => radius || '4px'};
   transition: all 250ms ease-in-out;
   cursor: pointer;
   &:hover {
@@ -30,15 +30,15 @@ export const NormalHoverButton = styled.button`
 `;
 
 export const NeogradButton = styled.button`
+  background: linear-gradient(60deg, ${({ bgPrimary }) => bgPrimary}, ${({ bgSecondary }) => bgSecondary});
   color: #000;
   text-align: center;
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
-  background: linear-gradient(60deg, ${({ bgPrimary }) => bgPrimary}, ${({ bgSecondary }) => bgSecondary});
   box-shadow: 1px 1px 40px ${({ bgPrimary }) => bgPrimary || '#fff'} inset;
-  border-radius: ${({ radius }) => radius || '4px'};
-  border-style: ${({ borderStyle }) => borderStyle || 'none'};
   border: ${({ border }) => border || '0px'};
+  border-style: ${({ borderStyle }) => borderStyle || 'none'};
+  border-radius: ${({ radius }) => radius || '4px'};
   transition: all 250ms ease-in-out;
   cursor: pointer;
   &:hover {
@@ -49,16 +49,16 @@ export const NeogradButton = styled.button`
 `;
 
 export const NeogradReverseButton = styled.button`
+  background: transparent;
   color: ${({ bgPrimary }) => bgPrimary || '#000'};
   text-align: center;
-  box-shadow: 0 0 10px 0 ${({ bgPrimary }) => bgPrimary || '#fff'} inset, 0 0 10px 3px ${({ bgSecondary }) => bgSecondary || '#fff'};
-  background: transparent;
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
-  transition: all 250ms ease-in-out;
-  border-radius: ${({ radius }) => radius || '4px'};
-  border-style: ${({ borderStyle }) => borderStyle || 'none'};
+  box-shadow: 0 0 10px 0 ${({ bgPrimary }) => bgPrimary || '#fff'} inset, 0 0 10px 3px ${({ bgSecondary }) => bgSecondary || '#fff'};
   border: ${({ border }) => border || '0px'};
+  border-style: ${({ borderStyle }) => borderStyle || 'none'};
+  border-radius: ${({ radius }) => radius || '4px'};
+  transition: all 250ms ease-in-out;
   cursor: pointer;
   &:hover {
     background: linear-gradient(60deg, ${({ bgPrimary }) => bgPrimary}, ${({ bgSecondary }) => bgSecondary});
@@ -68,14 +68,14 @@ export const NeogradReverseButton = styled.button`
 `
 
 export const GradientButton = styled.button`
-  color: #000;
   background: linear-gradient(60deg, ${({ bgPrimary }) => bgPrimary}, ${({ bgSecondary }) => bgSecondary});
+  color: #000;
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
-  transition: all 250ms ease-in-out;
-  border-radius: ${({ radius }) => radius || '4px'};
-  border-style: ${({ borderStyle }) => borderStyle || 'none'};
   border: ${({ border }) => border || '0px'};
+  border-style: ${({ borderStyle }) => borderStyle || 'none'};
+  border-radius: ${({ radius }) => radius || '4px'};
+  transition: all 250ms ease-in-out;
   cursor: pointer;
   &:hover {
     box-shadow: inset -3px 3px 10px ${({ bgPrimary }) => bgPrimary},
@@ -84,14 +84,14 @@ export const GradientButton = styled.button`
 `;
 
 export const GradientRadialButton = styled.button`
-  color: #000;
   background: radial-gradient(${({ bgPrimary }) => bgPrimary}, ${({ bgSecondary }) => bgSecondary});
+  color: #000;
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
-  transition: all 250ms ease-in-out;
-  border-radius: ${({ radius }) => radius || '4px'};
-  border-style: ${({ borderStyle }) => borderStyle || 'none'};
   border: ${({ border }) => border || '0px'};
+  border-style: ${({ borderStyle }) => borderStyle || 'none'};
+  border-radius: ${({ radius }) => radius || '4px'};
+  transition: all 250ms ease-in-out;
   cursor: pointer;
   &:hover {
     box-shadow: inset -3px 3px 10px ${({ bgPrimary }) => bgPrimary},
@@ -100,30 +100,32 @@ export const GradientRadialButton = styled.button`
 `;
 
 export const NeonButton = styled.button`
-  color: #000;
   background: linear-gradient(60deg, ${({ bgPrimary }) => bgPrimary}, ${({ bgSecondary }) => bgSecondary});
+  color: #000;
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
-  box-shadow: 0 0 10px ${({ bgPrimary }) => bgPrimary}, 0 0 10px ${({ bgSecondary }) => bgSecondary} inset;
-  border-radius: ${({ radius }) => radius || '4px'};
-  border-style: ${({ borderStyle }) => borderStyle || 'none'};
+  box-shadow: 0 0 5px ${({ bgPrimary }) => bgPrimary}, 0 0 25px ${({ bgPrimary }) => bgPrimary},
+      0 0 5px ${({ bgSecondary }) => bgSecondary}, 0 0 25px ${({ bgSecondary }) => bgSecondary};
   border: ${({ border }) => border || '0px'};
+  border-style: ${({ borderStyle }) => borderStyle || 'none'};
+  border-radius: ${({ radius }) => radius || '4px'};
   transition: all 250ms ease-in-out;
   cursor: pointer;
   &:hover {
-    box-shadow: 0 0 15px ${({ bgPrimary }) => bgPrimary}, 0 0 15px 3px ${({ bgSecondary }) => bgSecondary} inset;
+    box-shadow: 0 0 5px ${({ bgPrimary }) => bgPrimary}, 0 0 25px ${({ bgPrimary }) => bgPrimary}, 0 0 50px ${({ bgPrimary }) => bgPrimary},
+      0 0 5px ${({ bgSecondary }) => bgSecondary}, 0 0 25px ${({ bgSecondary }) => bgSecondary}, 0 0 50px ${({ bgSecondary }) => bgSecondary};
   }
 `;
 
 export const NeonBorderButton = styled.button`
   background: transparent;
+  color: ${({ bgPrimary }) => bgPrimary};
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
-  border-radius: ${({ radius }) => radius || '4px'};
-  border-style: ${({ borderStyle }) => borderStyle || 'none'};
-  border: ${({ border }) => border || '0px'};
   box-shadow: 0 0 15px ${({ bgPrimary }) => bgPrimary}, 0 0 15px 3px ${({ bgSecondary }) => bgSecondary} inset;
-  color: ${({ bgPrimary }) => bgPrimary};
+  border: ${({ border }) => border || '0px'};
+  border-style: ${({ borderStyle }) => borderStyle || 'none'};
+  border-radius: ${({ radius }) => radius || '4px'};
   transition: all 250ms ease-in-out;
   cursor: pointer;
   &:hover {
@@ -132,16 +134,17 @@ export const NeonBorderButton = styled.button`
 `;
 
 export const NeonReflexButton = styled.button`
-  color: #000;
   background: linear-gradient(45deg, ${({ bgPrimary }) => bgPrimary}, ${({ bgSecondary }) => bgSecondary});
-  border-radius: ${({ radius }) => radius || '4px'};
-  border-style: ${({ borderStyle }) => borderStyle || 'none'};
-  border: ${({ border }) => border || '0px'};
+  color: #000;
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
+  border: ${({ border }) => border || '0px'};
+  border-style: ${({ borderStyle }) => borderStyle || 'none'};
+  border-radius: ${({ radius }) => radius || '4px'};
   letter-spacing: 4px;
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
   transition: all 250ms ease-in-out;
+  cursor: pointer;
   &:hover {
     color: #000;
     box-shadow: 0 0 5px ${({ bgPrimary }) => bgPrimary}, 0 0 25px ${({ bgPrimary }) => bgPrimary}, 0 0 50px ${({ bgPrimary }) => bgPrimary},
@@ -150,15 +153,15 @@ export const NeonReflexButton = styled.button`
 `;
 
 export const BorderMoveButton = styled.button`
-  position: relative;
+  background: transparent;
+  color: ${({ bgPrimary }) => bgPrimary || '#fff'};
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
-  color: ${({ bgPrimary }) => bgPrimary || '#fff'};
-  background: transparent;
   border: none;
   border-radius: ${({ radius }) => radius || '4px'};
   overflow: hidden;
   cursor: pointer;
+  position: relative;
   &::before {
     content: "";
     position: absolute;
@@ -170,10 +173,6 @@ export const BorderMoveButton = styled.button`
     border-left: 2px ${({ borderStyle }) => borderStyle || 'solid'} ${({ bgPrimary }) => bgPrimary};
     border-radius: inherit;
     transition: all 250ms ease-in-out;
-  }
-  &:hover:before {
-    width: 100%;
-    height: 100%;
   }
   &::after {
     content: "";
@@ -187,6 +186,10 @@ export const BorderMoveButton = styled.button`
     border-radius: inherit;
     transition: 0.5s;
   }
+  &:hover:before {
+    width: 100%;
+    height: 100%;
+  }
   &:hover::after {
     width: 100%;
     height: 100%;
@@ -194,15 +197,15 @@ export const BorderMoveButton = styled.button`
 `;
 
 export const BorderMoveLightButton = styled.button`
-  position: relative;
+  background: transparent;
+  color: ${({ bgPrimary }) => bgPrimary || '#fff'};
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
-  color: ${({ bgPrimary }) => bgPrimary || '#fff'};
-  background: transparent;
   border: none;
   border-radius: ${({ radius }) => radius || '4px'};
   overflow: hidden;
   cursor: pointer;
+  position: relative;
   &:hover {
     background: ${({ bgPrimary }) => bgPrimary};
     box-shadow: 0 0 20px ${({ bgPrimary }) => bgPrimary};;
@@ -219,13 +222,8 @@ export const BorderMoveLightButton = styled.button`
     height: 10px;
     border-top: 2px ${({ borderStyle }) => borderStyle || 'solid'} ${({ bgPrimary }) => bgPrimary};
     border-left: 2px ${({ borderStyle }) => borderStyle || 'solid'} ${({ bgPrimary }) => bgPrimary};
-    border-color: inherit;
     border-radius: inherit;
     transition: 0.5s;
-  }
-  &:hover:before {
-    width: 100%;
-    height: 100%;
   }
   &::after {
     content: "";
@@ -236,9 +234,12 @@ export const BorderMoveLightButton = styled.button`
     height: 10px;
     border-bottom: 2px ${({ borderStyle }) => borderStyle || 'solid'} ${({ bgSecondary }) => bgSecondary};
     border-right: 2px ${({ borderStyle }) => borderStyle || 'solid'} ${({ bgSecondary }) => bgSecondary};
-    border-color: inherit;
     border-radius: inherit;
     transition: 0.5s;
+  }
+  &:hover:before {
+    width: 100%;
+    height: 100%;
   }
   &:hover::after {
     width: 100%;
@@ -247,19 +248,19 @@ export const BorderMoveLightButton = styled.button`
 `;
 
 export const SlideLeftButton = styled.button`
+  background: transparent;
+  color: ${({ bgPrimary }) => bgPrimary};
   text-align: center;
-  position: relative;
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
-  transition: all 0.25s ease-in-out;
-  background: transparent;
-  border-radius: ${({ radius }) => radius || '4px'};
   border: none;
-  z-index: 1;
-  color: ${({ bgPrimary }) => bgPrimary};
+  border-radius: ${({ radius }) => radius || '4px'};
   box-shadow: 0px 0px 5px ${({ bgPrimary }) => bgPrimary};
   overflow: hidden;
+  transition: all 0.25s ease-in-out;
   cursor: pointer;
+  position: relative;
+  z-index: 1;
   &::after {
     position: absolute;
     content: "";
@@ -281,19 +282,19 @@ export const SlideLeftButton = styled.button`
 `;
 
 export const SlideRightButton = styled.button`
+  background: transparent;
+  color: ${({ bgPrimary }) => bgPrimary};
   text-align: center;
-  position: relative;
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
-  transition: all 0.25s ease-in-out;
-  background: transparent;
-  border-radius: ${({ radius }) => radius || '4px'};
   border: none;
-  z-index: 1;
-  color: ${({ bgPrimary }) => bgPrimary};
+  border-radius: ${({ radius }) => radius || '4px'};
   box-shadow: 0px 0px 5px ${({ bgPrimary }) => bgPrimary};
   overflow: hidden;
+  transition: all 0.25s ease-in-out;
   cursor: pointer;
+  position: relative;
+  z-index: 1;
   &::after {
     position: absolute;
     content: "";
@@ -315,19 +316,19 @@ export const SlideRightButton = styled.button`
 `;
 
 export const SlideDownButton = styled.button`
+  background: transparent;
+  color: ${({ bgPrimary }) => bgPrimary};
   text-align: center;
-  position: relative;
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
-  transition: all 0.25s ease-in-out;
-  background: transparent;
-  border-radius: ${({ radius }) => radius || '4px'};
   border: none;
-  z-index: 1;
-  color: ${({ bgPrimary }) => bgPrimary};
+  border-radius: ${({ radius }) => radius || '4px'};
   box-shadow: 0px 0px 5px ${({ bgPrimary }) => bgPrimary};
   overflow: hidden;
+  transition: all 0.25s ease-in-out;
   cursor: pointer;
+  position: relative;
+  z-index: 1;
   &::after {
     position: absolute;
     content: "";
@@ -349,19 +350,19 @@ export const SlideDownButton = styled.button`
 `;
 
 export const SlideUpButton = styled.button`
+  background: transparent;
+  color: ${({ bgPrimary }) => bgPrimary};
   text-align: center;
-  position: relative;
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
-  transition: all 0.25s ease-in-out;
-  background: transparent;
-  border-radius: ${({ radius }) => radius || '4px'};
   border: none;
-  z-index: 1;
-  color: ${({ bgPrimary }) => bgPrimary};
+  border-radius: ${({ radius }) => radius || '4px'};
   box-shadow: 0px 0px 5px ${({ bgPrimary }) => bgPrimary};
   overflow: hidden;
+  transition: all 0.25s ease-in-out;
   cursor: pointer;
+  position: relative;
+  z-index: 1;
   &::after {
     position: absolute;
     content: "";
@@ -383,19 +384,19 @@ export const SlideUpButton = styled.button`
 `;
 
 export const SlideCircleButton = styled.button`
+  background: transparent;
+  color: ${({ bgPrimary }) => bgPrimary};
   text-align: center;
-  position: relative;
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
-  transition: all 0.25s ease-in-out;
-  background: transparent;
-  border-radius: ${({ radius }) => radius || '4px'};
   border: none;
-  color: ${({ bgPrimary }) => bgPrimary};
+  border-radius: ${({ radius }) => radius || '4px'};
   box-shadow: 0px 0px 5px ${({ bgPrimary }) => bgPrimary};
   overflow: hidden;
+  transition: all 0.25s ease-in-out;
   cursor: pointer;
-  z-index: 20;
+  position: relative;
+  z-index: 1;
   &::after {
     position: absolute;
     content: "";
@@ -421,14 +422,14 @@ export const SlideCircleButton = styled.button`
 `;
 
 export const BehindBorderButton = styled.button`
+  background: ${({ bgPrimary }) => bgPrimary};
   border: none;
-  position: relative;
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
-  background: ${({ bgPrimary }) => bgPrimary};
   border-radius: ${({ radius }) => radius || '4px'};
   transition: all 0.25s ease-in;
   cursor: pointer;
+  position: relative;
   z-index: 1;
   &::before {
     position: absolute;
@@ -462,8 +463,8 @@ export const BehindBorderButton = styled.button`
       top: -15px;
       left: 15px;
       transition: all 0.35s ease-in;
-      border: 2px solid ${({ bgPrimary }) => bgPrimary};;
-      box-shadow: 0 0 20px ${({ bgPrimary }) => bgPrimary};;
+      border: 2px solid ${({ bgPrimary }) => bgPrimary};
+      box-shadow: 0 0 20px ${({ bgPrimary }) => bgPrimary};
     }
     &::after {
       top: 15px;
@@ -476,15 +477,15 @@ export const BehindBorderButton = styled.button`
 `;
 
 export const BehindShadowButton = styled.button`
+  background: ${({ bgPrimary }) => bgPrimary};
   border: none;
-  position: relative;
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
-  background: ${({ bgPrimary }) => bgPrimary};
   border-radius: ${({ radius }) => radius || '4px'};
   transition: all 0.25s ease-in;
   cursor: pointer;
   z-index: 1;
+  position: relative;
   &::before {
     position: absolute;
     content: "";
@@ -529,11 +530,11 @@ export const BehindShadowButton = styled.button`
 
 export const HideBorderButton = styled.button`
   background: transparent;
+  color: ${({ bgPrimary }) => bgPrimary};
   border: none;
   line-height: ${({ height }) => height || '50px'};
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
-  color: ${({ bgPrimary }) => bgPrimary};
   transition: all 0.35s ease-in;
   cursor: pointer;
   &:after,
@@ -544,7 +545,7 @@ export const HideBorderButton = styled.button`
     display: block;
     margin: 0 auto;
     position: relative;
-    transition: all 280ms ease-in-out;
+    transition: all 350ms ease-in-out;
     width: 0;
   }
 
@@ -563,13 +564,13 @@ export const HideBorderButton = styled.button`
 `;
 
 export const SurroundBorderButton = styled.button`
-  position: relative;
   background: ${({ bgPrimary }) => bgPrimary};
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
-  border-radius: ${({ radius }) => radius || '4px'};
   border: none;
+  border-radius: ${({ radius }) => radius || '4px'};
   cursor: pointer;
+  position: relative;
   &::before {
     position: absolute;
     content: "";
@@ -591,16 +592,17 @@ export const SurroundBorderButton = styled.button`
 `;
 
 export const HalfMoveButton = styled.button`
-  position: relative;
-  margin: 0 auto;
   background: transparent;
-  outline: none;
-  border: none;
   color: #fff;
+  margin: 0 auto;
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
+  outline: none;
+  border: none;
   border-radius: ${({ radius }) => radius || '4px'};
+  cursor: pointer;
   z-index: 1;
+  position: relative;
   &::after,
   &::before {
     content: "";
@@ -615,10 +617,12 @@ export const HalfMoveButton = styled.button`
   &::before {
     top: -20%;
     left: 0rem;
+    background: ${({ bgPrimary }) => bgPrimary};
   }
   &::after {
     top: 20%;
     left: 50%;
+    background: ${({ bgSecondary }) => bgSecondary};
   }
   &:hover {
     &::before,
@@ -633,4 +637,4 @@ export const HalfMoveButton = styled.button`
       left: 50%;
     }
   }
-`
+`;
