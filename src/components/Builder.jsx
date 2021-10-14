@@ -1,10 +1,12 @@
 import { useState } from "react";
+import ButtonCSS from "./Code/Buttons/ButtonCSS";
 import EffectsButtons from "./Effects/EffectsButtons";
 import SettingsNavButtons from "./SettingsNav/Buttons";
 import ViewButton from "./ViewCode/ViewButton";
 
 const Builder = () => {
   const [activeNav, setActiveNav] = useState('Buttons');
+  const [activeViewCode, setActiveViewCode] = useState('View');
   return (
     <section className="builder">
       <div className="builder__nav">
@@ -35,10 +37,16 @@ const Builder = () => {
           </div>
           <div className="builder__wrapper-view">
             <div className="builder__wrapper-nav">
-                <button className="builder__wrapper-nav-item active">
+                <button 
+                  className={`builder__wrapper-nav-item ${activeViewCode === 'View' && 'active'}`}
+                  onClick={() => setActiveViewCode('View')}
+                >
                   View
                 </button>
-                <button className="builder__wrapper-nav-item">
+                <button 
+                  className={`builder__wrapper-nav-item ${activeViewCode === 'CSS' && 'active'}`}
+                  onClick={() => setActiveViewCode('CSS')}
+                >
                   CSS
                 </button>
                 <button className="builder__wrapper-nav-item">
@@ -49,7 +57,11 @@ const Builder = () => {
                 </button>
               </div>
               <div className="builder__wrapper-container">
-                <ViewButton />
+                {activeViewCode === 'View' ? (
+                  <ViewButton />
+                ) : (
+                  <ButtonCSS />
+                )}
               </div>
           </div>
         </div>
