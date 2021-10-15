@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import { getButtonSettings } from "../../../context/slices/buttonSettings";
-import React from 'react'
 
 const ButtonCSS = () => {
   const button = useSelector(getButtonSettings);

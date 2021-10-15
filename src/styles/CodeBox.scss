@@ -11,14 +11,20 @@
     flex-direction: column;
     width: 100%;
     height: auto;
+    padding-bottom: 32px;
     justify-content: flex-start;
     align-items: flex-start;
     color: #fff;
     & span {
       padding-left: 8px;
+      text-align: left;
     }
     & span.codeBox__snippet-title {
       padding-left: 0px;
+    }
+    &-comment {
+      font-size: 14px;
+      color: #bbb;
     }
   }
 }

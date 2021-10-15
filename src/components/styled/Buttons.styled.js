@@ -184,12 +184,9 @@ export const BorderMoveButton = styled.button`
     border-bottom: 2px ${({ borderStyle }) => borderStyle || 'solid'} ${({ bgSecondary }) => bgSecondary};
     border-right: 2px ${({ borderStyle }) => borderStyle || 'solid'} ${({ bgSecondary }) => bgSecondary};
     border-radius: inherit;
-    transition: 0.5s;
+    transition: all 250ms ease-in-out;
   }
-  &:hover:before {
-    width: 100%;
-    height: 100%;
-  }
+  &:hover:before,
   &:hover::after {
     width: 100%;
     height: 100%;
@@ -208,7 +205,7 @@ export const BorderMoveLightButton = styled.button`
   position: relative;
   &:hover {
     background: ${({ bgPrimary }) => bgPrimary};
-    box-shadow: 0 0 20px ${({ bgPrimary }) => bgPrimary};;
+    box-shadow: 0 0 20px ${({ bgPrimary }) => bgPrimary};
     border: none;
     color: #000000;
     transition-delay: 0.25s;
@@ -237,10 +234,7 @@ export const BorderMoveLightButton = styled.button`
     border-radius: inherit;
     transition: 0.5s;
   }
-  &:hover:before {
-    width: 100%;
-    height: 100%;
-  }
+  &:hover:before,
   &:hover::after {
     width: 100%;
     height: 100%;
@@ -441,7 +435,7 @@ export const BehindBorderButton = styled.button`
     opacity: 0.5;
     z-index: -1;
     border-radius: inherit;
-    transition: all 0.25s ease-in;
+    transition: all 250ms ease-in;
   }
   &::after {
     position: absolute;
@@ -453,23 +447,23 @@ export const BehindBorderButton = styled.button`
     opacity: 0.5;
     z-index: -1;
     border-radius: inherit;
-    transition: all 0.25s ease-in;
+    transition: all 250ms ease-in;
   }
   &:hover {
     top: 0;
     left: 0;
-    transition: all 0.25s ease-in;
+    transition: all 250ms ease-in;
     &::before {
       top: -15px;
       left: 15px;
-      transition: all 0.35s ease-in;
+      transition: all 350ms ease-in;
       border: 2px solid ${({ bgPrimary }) => bgPrimary};
       box-shadow: 0 0 20px ${({ bgPrimary }) => bgPrimary};
     }
     &::after {
       top: 15px;
       left: -15px;
-      transition: all 0.35s ease-in;
+      transition: all 350ms ease-in;
       border: 2px solid ${({ bgPrimary }) => bgPrimary};
       box-shadow: 0 0 20px ${({ bgPrimary }) => bgPrimary};
     }
@@ -522,8 +516,8 @@ export const BehindShadowButton = styled.button`
       top: 15px;
       left: -15px;
       transition: all 0.35s ease-in;
-      background: ${({ bgPrimary }) => bgPrimary};
-      box-shadow: 0 0 20px ${({ bgPrimary }) => bgPrimary};
+      background: ${({ bgSecondary }) => bgSecondary};
+      box-shadow: 0 0 20px ${({ bgSecondary }) => bgSecondary};
     }
   }
 `;

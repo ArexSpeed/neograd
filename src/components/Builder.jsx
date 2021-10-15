@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ButtonCSS from "./Code/Buttons/ButtonCSS";
+import ButtonRSC from "./Code/Buttons/ButtonRSC";
 import EffectsButtons from "./Effects/EffectsButtons";
 import SettingsNavButtons from "./SettingsNav/Buttons";
 import ViewButton from "./ViewCode/ViewButton";
@@ -49,19 +50,24 @@ const Builder = () => {
                 >
                   CSS
                 </button>
-                <button className="builder__wrapper-nav-item">
-                  SCSS
-                </button>
-                <button className="builder__wrapper-nav-item">
+                <button 
+                  className={`builder__wrapper-nav-item ${activeViewCode === 'React' && 'active'}`}
+                  onClick={() => setActiveViewCode('React')}
+                >
                   React
                 </button>
               </div>
               <div className="builder__wrapper-container">
-                {activeViewCode === 'View' ? (
+                {activeViewCode === 'View' && (
                   <ViewButton />
-                ) : (
+                )}
+                {activeViewCode === 'CSS' && (
                   <ButtonCSS />
                 )}
+                {activeViewCode === 'React' && (
+                  <ButtonRSC />
+                )}
+
               </div>
           </div>
         </div>
