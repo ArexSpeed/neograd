@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getButtonSettings, setSizes, setAllSizes, setRadius, setAllRadius, setColors, setBorder, setAllBorder } from '../../context/slices/buttonSettings';
+import { getButtonSettings, setSizes, setAllSizes, setRadius, setAllRadius, setColors, setBorder, setAllBorder, toggleAllRadius, toggleAllBorder } from '../../context/slices/buttonSettings';
 import ColorPallete from './ColorPallete';
 
 const SettingsNavButtons = () => {
@@ -97,13 +97,19 @@ const SettingsNavButtons = () => {
           Radius
           <button
             className="settingsNav__title-button"
-            onClick={() => setRadiusOption("All")}
+            onClick={() => {
+              setRadiusOption("All");
+              dispatch(toggleAllRadius(true));
+            }}
           >
             All
           </button>
           <button
             className="settingsNav__title-button"
-            onClick={() => setRadiusOption("Spec")}
+            onClick={() => {
+              setRadiusOption("Spec");
+              dispatch(toggleAllRadius(false));
+            }}
           >
             Spec
           </button>
@@ -302,13 +308,19 @@ const SettingsNavButtons = () => {
           Border
           <button
             className="settingsNav__title-button"
-            onClick={() => setBorderOption("All")}
+            onClick={() => {
+              setBorderOption("All");
+              dispatch(toggleAllBorder(true))
+            }}
           >
             All
           </button>
           <button
             className="settingsNav__title-button"
-            onClick={() => setBorderOption("Spec")}
+            onClick={() => {
+              setBorderOption("Spec");
+              dispatch(toggleAllBorder(false))
+            }}
           >
             Spec
           </button>

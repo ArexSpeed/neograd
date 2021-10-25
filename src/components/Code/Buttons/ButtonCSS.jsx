@@ -14,9 +14,9 @@ const ButtonCSS = () => {
               <span>color: #000000;</span>
               <span>width: {button.sizes.width}px;</span>
               <span>height: {button.sizes.height}px;</span>
-              <span>border-radius: {button.radius.top}px;</span>
+              <span>border-radius: {button.radius.all ? button.radius.top+'px ' : button.radius.top+'px '+ button.radius.right+'px '+ button.radius.bottom+'px '+ button.radius.left+'px ' };</span>
               <span>border-style: {button.border.type};</span>
-              <span>border: {button.border.top}px;</span>
+              <span>border: {button.border.all ? button.border.type+'px ' : button.border.top+'px '+ button.border.right+'px '+ button.border.bottom+'px '+ button.border.left+'px '};</span>
               <span>cursor: pointer;</span>
             <span className="codeBox__snippet-title">{`}`}</span>
           </div>
@@ -29,9 +29,9 @@ const ButtonCSS = () => {
               <span>color: {button.colors.c1};</span>
               <span>width: {button.sizes.width}px;</span>
               <span>height: {button.sizes.height}px;</span>
-              <span>border: {button.border.top}px {button.border.right}px {button.border.bottom}px {button.border.left}px;</span>
-              <span>border-radius: {button.radius.top}px;</span>
+              <span>border-radius: {button.radius.all ? button.radius.top+'px ' : button.radius.top+'px '+ button.radius.right+'px '+ button.radius.bottom+'px '+ button.radius.left+'px ' };</span>
               <span>border-style: {button.border.type};</span>
+              <span>border: {button.border.all ? button.border.type+'px ' : button.border.top+'px '+ button.border.right+'px '+ button.border.bottom+'px '+ button.border.left+'px '};</span>
               <span>border-color: {button.colors.c1};</span>
               <span>transition: all 250ms ease-in-out;</span>
               <span>cursor: pointer;</span>
@@ -53,14 +53,14 @@ const ButtonCSS = () => {
               <span>width: {button.sizes.width}px;</span>
               <span>height: {button.sizes.height}px;</span>
               <span>box-shadow: 1px 1px 40px {button.colors.c1} inset;</span>
-              <span>border: {button.border.top}px {button.border.right}px {button.border.bottom}px {button.border.left}px;</span>
+              <span>border: {button.border.all ? button.border.type+'px ' : button.border.top+'px '+ button.border.right+'px '+ button.border.bottom+'px '+ button.border.left+'px '};</span>
               {button.border.top > 0 && (
               <>
                 <span>border-style: {button.border.type};</span>
                 <span>border-color: {button.colors.c1};</span>
               </>
               )}
-              <span>border-radius: {button.radius.top}px;</span>
+              <span>border-radius: {button.radius.all ? button.radius.top+'px ' : button.radius.top+'px '+ button.radius.right+'px '+ button.radius.bottom+'px '+ button.radius.left+'px ' };</span>
               <span>transition: all 250ms ease-in-out;</span>
               <span>cursor: pointer;</span>
             <span className="codeBox__snippet-title">{`}`}</span>
@@ -81,15 +81,15 @@ const ButtonCSS = () => {
              <span>width: {button.sizes.width}px;</span>
              <span>height: {button.sizes.height}px;</span>
              <span>box-shadow: inset 0 0 10px {button.colors.c1}, 0 0 10px 3px {button.colors.c1};</span>
-             <span>border: {button.border.top}px {button.border.right}px {button.border.bottom}px {button.border.left}px;</span>
-             {button.border.top > 0 && (
+             <span>border: {button.border.all ? button.border.type+'px ' : button.border.top+'px '+ button.border.right+'px '+ button.border.bottom+'px '+ button.border.left+'px '};</span>
+              {button.border.top > 0 && (
               <>
                 <span>border-style: {button.border.type};</span>
                 <span>border-color: {button.colors.c1};</span>
               </>
               )}
-             <span>border-radius: {button.radius.top}px;</span>
-             <span>transition: all 250ms ease-in-out;</span>
+              <span>border-radius: {button.radius.all ? button.radius.top+'px ' : button.radius.top+'px '+ button.radius.right+'px '+ button.radius.bottom+'px '+ button.radius.left+'px ' };</span>
+              <span>transition: all 250ms ease-in-out;</span>
              <span>cursor: pointer;</span>
              <span className="codeBox__snippet-title">{`}`}</span>
              <span className="codeBox__snippet-title">{`.button:hover {`}</span>
@@ -107,14 +107,14 @@ const ButtonCSS = () => {
               <span>color: #000;</span>
               <span>width: {button.sizes.width}px;</span>
               <span>height: {button.sizes.height}px;</span>
-              <span>border: {button.border.top}px {button.border.right}px {button.border.bottom}px {button.border.left}px;</span>
+              <span>border: {button.border.all ? button.border.type+'px ' : button.border.top+'px '+ button.border.right+'px '+ button.border.bottom+'px '+ button.border.left+'px '};</span>
               {button.border.top > 0 && (
-                <>
-                  <span>border-style: {button.border.type};</span>
-                  <span>border-color: {button.colors.c1};</span>
-                </>
-                )}
-              <span>border-radius: {button.radius.top}px;</span>
+              <>
+                <span>border-style: {button.border.type};</span>
+                <span>border-color: {button.colors.c1};</span>
+              </>
+              )}
+              <span>border-radius: {button.radius.all ? button.radius.top+'px ' : button.radius.top+'px '+ button.radius.right+'px '+ button.radius.bottom+'px '+ button.radius.left+'px ' };</span>
               <span>transition: all 250ms ease-in-out;</span>
               <span>cursor: pointer;</span>
              <span className="codeBox__snippet-title">{`}`}</span>
@@ -131,15 +131,15 @@ const ButtonCSS = () => {
             <span>color: #000;</span>
             <span>width: {button.sizes.width}px;</span>
             <span>height: {button.sizes.height}px;</span>
-            <span>border: {button.border.top}px {button.border.right}px {button.border.bottom}px {button.border.left}px;</span>
-            {button.border.top > 0 && (
+            <span>border: {button.border.all ? button.border.type+'px ' : button.border.top+'px '+ button.border.right+'px '+ button.border.bottom+'px '+ button.border.left+'px '};</span>
+              {button.border.top > 0 && (
               <>
                 <span>border-style: {button.border.type};</span>
                 <span>border-color: {button.colors.c1};</span>
               </>
               )}
-            <span>border-radius: {button.radius.top}px;</span>
-            <span>transition: all 250ms ease-in-out;</span>
+              <span>border-radius: {button.radius.all ? button.radius.top+'px ' : button.radius.top+'px '+ button.radius.right+'px '+ button.radius.bottom+'px '+ button.radius.left+'px ' };</span>
+              <span>transition: all 250ms ease-in-out;</span>
             <span>cursor: pointer;</span>
            <span className="codeBox__snippet-title">{`}`}</span>
            <span className="codeBox__snippet-title">{`.button:hover {`}</span>
@@ -158,14 +158,14 @@ const ButtonCSS = () => {
                 <span>box-shadow:  0 0 5px {button.colors.c1}, 0 0 25px {button.colors.c1},
                                    0 0 5px {button.colors.c2}, 0 0 25px {button.colors.c2};
                 </span>
-                <span>border: {button.border.top}px {button.border.right}px {button.border.bottom}px {button.border.left}px;</span>
-                {button.border.top > 0 && (
+                <span>border: {button.border.all ? button.border.type+'px ' : button.border.top+'px '+ button.border.right+'px '+ button.border.bottom+'px '+ button.border.left+'px '};</span>
+                  {button.border.top > 0 && (
                   <>
                     <span>border-style: {button.border.type};</span>
                     <span>border-color: {button.colors.c1};</span>
                   </>
-                )}
-                <span>border-radius: {button.radius.top}px;</span>
+                  )}
+                <span>border-radius: {button.radius.all ? button.radius.top+'px ' : button.radius.top+'px '+ button.radius.right+'px '+ button.radius.bottom+'px '+ button.radius.left+'px ' };</span>
                 <span>transition: all 250ms ease-in-out;</span>
                 <span>cursor: pointer;</span>
                 <span className="codeBox__snippet-title">{`}`}</span>
@@ -185,14 +185,14 @@ const ButtonCSS = () => {
                 <span>width: {button.sizes.width}px;</span>
                 <span>height: {button.sizes.height}px;</span>
                 <span>box-shadow: 0 0 15px {button.colors.c1}, 0 0 15px 3px ${button.colors.c2} inset;</span>
-                <span>border: {button.border.top}px {button.border.right}px {button.border.bottom}px {button.border.left}px;</span>
+                <span>border: {button.border.all ? button.border.type+'px ' : button.border.top+'px '+ button.border.right+'px '+ button.border.bottom+'px '+ button.border.left+'px '};</span>
                 {button.border.top > 0 && (
-                  <>
-                    <span>border-style: {button.border.type};</span>
-                    <span>border-color: {button.colors.c1};</span>
-                  </>
+                <>
+                  <span>border-style: {button.border.type};</span>
+                  <span>border-color: {button.colors.c1};</span>
+                </>
                 )}
-                <span>border-radius: {button.radius.top}px;</span>
+                <span>border-radius: {button.radius.all ? button.radius.top+'px ' : button.radius.top+'px '+ button.radius.right+'px '+ button.radius.bottom+'px '+ button.radius.left+'px ' };</span>
                 <span>transition: all 250ms ease-in-out;</span>
                 <span>cursor: pointer;</span>
               <span className="codeBox__snippet-title">{`}`}</span>
@@ -209,14 +209,14 @@ const ButtonCSS = () => {
                 <span>color: #000;</span>
                 <span>width: {button.sizes.width}px;</span>
                 <span>height: {button.sizes.height}px;</span>
-                <span>border: {button.border.top}px {button.border.right}px {button.border.bottom}px {button.border.left}px;</span>
+                <span>border: {button.border.all ? button.border.type+'px ' : button.border.top+'px '+ button.border.right+'px '+ button.border.bottom+'px '+ button.border.left+'px '};</span>
                 {button.border.top > 0 && (
-                  <>
-                    <span>border-style: {button.border.type};</span>
-                    <span>border-color: {button.colors.c1};</span>
-                  </>
+                <>
+                  <span>border-style: {button.border.type};</span>
+                  <span>border-color: {button.colors.c1};</span>
+                </>
                 )}
-                <span>border-radius: {button.radius.top}px;</span>
+                <span>border-radius: {button.radius.all ? button.radius.top+'px ' : button.radius.top+'px '+ button.radius.right+'px '+ button.radius.bottom+'px '+ button.radius.left+'px ' };</span>
                 <span>letter-spacing: 4px;</span>
                 <span>-webkit-box-reflect: below 1px linear-gradient(transparent, #0005);</span>
                 <span>transition: all 250ms ease-in-out;</span>
@@ -239,7 +239,7 @@ const ButtonCSS = () => {
               <span>width: {button.sizes.width}px;</span>
               <span>height: {button.sizes.height}px;</span>
               <span>border: none;</span>
-              <span>border-radius: {button.radius.top}px;</span>
+              <span>border-radius: {button.radius.all ? button.radius.top+'px ' : button.radius.top+'px '+ button.radius.right+'px '+ button.radius.bottom+'px '+ button.radius.left+'px ' };</span>
               <span>overflow: hidden;</span>
               <span>cursor: pointer;</span>
               <span>position: relative;</span>
@@ -287,7 +287,7 @@ const ButtonCSS = () => {
             <span>width: {button.sizes.width}px;</span>
             <span>height: {button.sizes.height}px;</span>
             <span>border: none;</span>
-            <span>border-radius: {button.radius.top}px;</span>
+            <span>border-radius: {button.radius.all ? button.radius.top+'px ' : button.radius.top+'px '+ button.radius.right+'px '+ button.radius.bottom+'px '+ button.radius.left+'px ' };</span>
             <span>overflow: hidden;</span>
             <span>cursor: pointer;</span>
             <span>position: relative;</span>
@@ -343,7 +343,7 @@ const ButtonCSS = () => {
             <span>width: {button.sizes.width}px;</span>
             <span>height: {button.sizes.height}px;</span>
             <span>border: none;</span>
-            <span>border-radius: {button.radius.top}px;</span>
+            <span>border-radius: {button.radius.all ? button.radius.top+'px ' : button.radius.top+'px '+ button.radius.right+'px '+ button.radius.bottom+'px '+ button.radius.left+'px ' };</span>
             <span>box-shadow: 0px 0px 5px {button.colors.c1};</span>
             <span>transition: all 250ms ease-in-out;</span>
             <span>overflow: hidden;</span>
@@ -381,7 +381,7 @@ const ButtonCSS = () => {
           <span>width: {button.sizes.width}px;</span>
           <span>height: {button.sizes.height}px;</span>
           <span>border: none;</span>
-          <span>border-radius: {button.radius.top}px;</span>
+          <span>border-radius: {button.radius.all ? button.radius.top+'px ' : button.radius.top+'px '+ button.radius.right+'px '+ button.radius.bottom+'px '+ button.radius.left+'px ' };</span>
           <span>box-shadow: 0px 0px 5px {button.colors.c1};</span>
           <span>transition: all 250ms ease-in-out;</span>
           <span>overflow: hidden;</span>
@@ -419,7 +419,7 @@ const ButtonCSS = () => {
           <span>width: {button.sizes.width}px;</span>
           <span>height: {button.sizes.height}px;</span>
           <span>border: none;</span>
-          <span>border-radius: {button.radius.top}px;</span>
+          <span>border-radius: {button.radius.all ? button.radius.top+'px ' : button.radius.top+'px '+ button.radius.right+'px '+ button.radius.bottom+'px '+ button.radius.left+'px ' };</span>
           <span>box-shadow: 0px 0px 5px {button.colors.c1};</span>
           <span>transition: all 250ms ease-in-out;</span>
           <span>overflow: hidden;</span>
@@ -457,7 +457,7 @@ const ButtonCSS = () => {
           <span>width: {button.sizes.width}px;</span>
           <span>height: {button.sizes.height}px;</span>
           <span>border: none;</span>
-          <span>border-radius: {button.radius.top}px;</span>
+          <span>border-radius: {button.radius.all ? button.radius.top+'px ' : button.radius.top+'px '+ button.radius.right+'px '+ button.radius.bottom+'px '+ button.radius.left+'px ' };</span>
           <span>box-shadow: 0px 0px 5px {button.colors.c1};</span>
           <span>transition: all 250ms ease-in-out;</span>
           <span>overflow: hidden;</span>
@@ -495,7 +495,7 @@ const ButtonCSS = () => {
             <span>width: {button.sizes.width}px;</span>
             <span>height: {button.sizes.height}px;</span>
             <span>border: none;</span>
-            <span>border-radius: {button.radius.top}px;</span>
+            <span>border-radius: {button.radius.all ? button.radius.top+'px ' : button.radius.top+'px '+ button.radius.right+'px '+ button.radius.bottom+'px '+ button.radius.left+'px ' };</span>
             <span>box-shadow: 0px 0px 5px {button.colors.c1};</span>
             <span>transition: all 250ms ease-in-out;</span>
             <span>overflow: hidden;</span>
@@ -534,7 +534,7 @@ const ButtonCSS = () => {
             <span>border: none;</span>
             <span>width: {button.sizes.width}px;</span>
             <span>height: {button.sizes.height}px;</span>
-            <span>border-radius: {button.radius.top}px;</span>
+            <span>border-radius: {button.radius.all ? button.radius.top+'px ' : button.radius.top+'px '+ button.radius.right+'px '+ button.radius.bottom+'px '+ button.radius.left+'px ' };</span>
             <span>transition: all 0.25s ease-in;</span>
             <span>cursor: pointer;</span>
             <span>position: relative;</span>
@@ -581,7 +581,7 @@ const ButtonCSS = () => {
             <span>border: none;</span>
             <span>width: {button.sizes.width}px;</span>
             <span>height: {button.sizes.height}px;</span>
-            <span>border-radius: {button.radius.top}px;</span>
+            <span>border-radius: {button.radius.all ? button.radius.top+'px ' : button.radius.top+'px '+ button.radius.right+'px '+ button.radius.bottom+'px '+ button.radius.left+'px ' };</span>
             <span>transition: all 0.25s ease-in;</span>
             <span>cursor: pointer;</span>
             <span>position: relative;</span>
@@ -663,7 +663,7 @@ const ButtonCSS = () => {
               <span>width: {button.sizes.width}px;</span>
               <span>height: {button.sizes.height}px;</span>
               <span>border: none;</span>
-              <span>border-radius: {button.radius.top};</span>
+              <span>border-radius: {button.radius.all ? button.radius.top+'px ' : button.radius.top+'px '+ button.radius.right+'px '+ button.radius.bottom+'px '+ button.radius.left+'px ' };</span>
               <span>cursor: pointer;</span>
               <span>position: relative;</span>
             <span className="codeBox__snippet-title">{`}`}</span>
@@ -698,7 +698,7 @@ const ButtonCSS = () => {
           <span>height: {button.sizes.height}px;</span>
           <span>border: none;</span>
           <span>outline: none;</span>
-          <span>border-radius: {button.radius.top};</span>
+          <span>border-radius: {button.radius.all ? button.radius.top+'px ' : button.radius.top+'px '+ button.radius.right+'px '+ button.radius.bottom+'px '+ button.radius.left+'px ' };</span>
           <span>cursor: pointer;</span>
           <span>position: relative;</span>
           <span>z-index: 1;</span>

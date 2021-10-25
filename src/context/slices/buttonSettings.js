@@ -8,6 +8,7 @@ const initialState = {
     height: 50
   },
   radius: {
+    all: false,
     top: 8,
     right: 8,
     bottom: 8,
@@ -20,6 +21,7 @@ const initialState = {
   },
   border: {
     type: 'none',
+    all: false,
     top: 0,
     right: 0,
     bottom: 0,
@@ -49,11 +51,15 @@ export const slice = createSlice({
     },
     setAllRadius: (state, action) => {
       state.radius = {
+        all: true,
         top: action.payload,
         right: action.payload,
         bottom: action.payload,
         left: action.payload
       }
+    },
+    toggleAllRadius: (state, action) => {
+      state.radius.all = action.payload
     },
     setColors: (state, action) => {
       state.colors[action.payload.type] = action.payload.value; 
@@ -64,17 +70,21 @@ export const slice = createSlice({
     setAllBorder: (state, action) => {
       state.border = {
         type: 'solid',
+        all: true,
         top: action.payload,
         right: action.payload,
         bottom: action.payload,
         left: action.payload,
       }
-    }
+    },
+    toggleAllBorder: (state, action) => {
+      state.border.all = action.payload
+    },
   },
 });
 
 export const {
-  setButtonName, setSizes, setAllSizes, setRadius, setAllRadius, setColors, setBorder, setAllBorder
+  setButtonName, setSizes, setAllSizes, setRadius, setAllRadius, toggleAllRadius, setColors, setBorder, setAllBorder, toggleAllBorder
 } = slice.actions;
 
 export const getButtonSettings = state => state.buttonSettings;

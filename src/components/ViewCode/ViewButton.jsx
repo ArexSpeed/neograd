@@ -61,6 +61,7 @@ const ViewButton = () => {
         return (
           <NeogradButton
             bgPrimary={button.colors.c1}
+            bgSecondary={button.colors.c2}
             width={`${button.sizes.width}px`}
             height={`${button.sizes.height}px`}
             borderStyle={`${button.border.type}`}
