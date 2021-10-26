@@ -10,7 +10,7 @@ const ButtonCSS = () => {
         return (
           <div className="codeBox__snippet">
             <span className="codeBox__snippet-title">{`.button {`}</span>
-              <span>background: {button.colors.c1};</span>
+              {button.colors.c1 === button.colors.c2 ? (<span>background: {button.colors.c1};</span>) : (<span>background: linear-gradient(90deg, {button.colors.c1}, {button.colors.c2});</span>)}
               <span>color: #000000;</span>
               <span>width: {button.sizes.width}px;</span>
               <span>height: {button.sizes.height}px;</span>
@@ -37,7 +37,7 @@ const ButtonCSS = () => {
               <span>cursor: pointer;</span>
             <span className="codeBox__snippet-title">{`}`}</span>
             <span className="codeBox__snippet-title">{`.button:hover {`}</span>
-              <span>background: {button.colors.c1};</span>
+              {button.colors.c1 === button.colors.c2 ? (<span>background: {button.colors.c1};</span>) : (<span>background: linear-gradient(90deg, {button.colors.c1}, {button.colors.c2});</span>)}
               <span>color: #000;</span>
               <span>transition: all 250ms ease-in-out;</span>
             <span className="codeBox__snippet-title">{`}`}</span>
@@ -52,7 +52,7 @@ const ButtonCSS = () => {
               <span>text-align: center;</span>
               <span>width: {button.sizes.width}px;</span>
               <span>height: {button.sizes.height}px;</span>
-              <span>box-shadow: 1px 1px 40px {button.colors.c1} inset;</span>
+              <span>box-shadow: -5px -5px 40px {button.colors.c1}, 5px 5px 40px {button.colors.c2};</span>
               <span>border: {button.border.all ? button.border.type+'px ' : button.border.top+'px '+ button.border.right+'px '+ button.border.bottom+'px '+ button.border.left+'px '};</span>
               {button.border.top > 0 && (
               <>
@@ -65,7 +65,7 @@ const ButtonCSS = () => {
               <span>cursor: pointer;</span>
             <span className="codeBox__snippet-title">{`}`}</span>
             <span className="codeBox__snippet-title">{`.button:hover {`}</span>
-              <span>box-shadow: inset 0 0 10px {button.colors.c1}, 0 0 10px 3px {button.colors.c1};</span>
+              <span>box-shadow: -5px 0px 10px {button.colors.c1}, 5px 0px 10px {button.colors.c2};</span>
               <span>background: transparent;</span>
               <span>color: {button.colors.c1}</span>
             <span className="codeBox__snippet-title">{`}`}</span>
@@ -80,7 +80,7 @@ const ButtonCSS = () => {
              <span>text-align: center;</span>
              <span>width: {button.sizes.width}px;</span>
              <span>height: {button.sizes.height}px;</span>
-             <span>box-shadow: inset 0 0 10px {button.colors.c1}, 0 0 10px 3px {button.colors.c1};</span>
+             <span>box-shadow: -5px 0px 10px {button.colors.c1}, 5px 0px 10px {button.colors.c2};</span>
              <span>border: {button.border.all ? button.border.type+'px ' : button.border.top+'px '+ button.border.right+'px '+ button.border.bottom+'px '+ button.border.left+'px '};</span>
               {button.border.top > 0 && (
               <>
@@ -673,7 +673,7 @@ const ButtonCSS = () => {
               <span>border-radius: inherit;</span>
               <span>width: 0;</span>
               <span>height: 0;</span>
-              <span>border: 5px solid {button.colors.c1};</span>
+              <span>border: 5px solid {button.colors.c2};</span>
               <span>top: 50%;</span>
               <span>left: 50%;</span>
               <span>transform: translate(-50%, -50%);</span>

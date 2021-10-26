@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const NormalButton = styled.button`
-  background-color: ${({ bgPrimary }) => bgPrimary || '#fff'};
+  background: linear-gradient(90deg, ${({ bgPrimary }) => bgPrimary}, ${({ bgSecondary }) => bgSecondary});
   color: ${({ color }) => color || '#000000'};
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
@@ -23,7 +23,7 @@ export const NormalHoverButton = styled.button`
   transition: all 250ms ease-in-out;
   cursor: pointer;
   &:hover {
-    background-color: ${({ bgPrimary }) => bgPrimary || '#fff'};
+    background: linear-gradient(90deg, ${({ bgPrimary }) => bgPrimary}, ${({ bgSecondary }) => bgSecondary});
     color: #000;
     transition: all 250ms ease-in-out;
   }
@@ -35,14 +35,14 @@ export const NeogradButton = styled.button`
   text-align: center;
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
-  box-shadow: 1px 1px 40px ${({ bgPrimary }) => bgPrimary || '#fff'} inset;
+  box-shadow: -5px -5px 40px ${({ bgPrimary }) => bgPrimary || '#fff'}, 5px 5px 40px ${({ bgSecondary }) => bgSecondary || '#fff'};
   border: ${({ border }) => border || '0px'};
   border-style: ${({ borderStyle }) => borderStyle || 'none'};
   border-radius: ${({ radius }) => radius || '4px'};
   transition: all 250ms ease-in-out;
   cursor: pointer;
   &:hover {
-    box-shadow: 0 0 10px 0 ${({ bgPrimary }) => bgPrimary || '#fff'} inset, 0 0 10px 3px ${({ bgSecondary }) => bgSecondary || '#fff'};
+    box-shadow: -5px 0px 10px ${({ bgPrimary }) => bgPrimary || '#fff'}, 5px 0px 10px ${({ bgSecondary }) => bgSecondary || '#fff'};
     background: transparent;
     color: ${({ bgPrimary }) => bgPrimary || '#000000'};
   }
@@ -54,7 +54,7 @@ export const NeogradReverseButton = styled.button`
   text-align: center;
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '50px'};
-  box-shadow: 0 0 10px 0 ${({ bgPrimary }) => bgPrimary || '#fff'} inset, 0 0 10px 3px ${({ bgSecondary }) => bgSecondary || '#fff'};
+  box-shadow: -5px 0px 10px ${({ bgPrimary }) => bgPrimary || '#fff'}, 5px 0px 10px ${({ bgSecondary }) => bgSecondary || '#fff'};
   border: ${({ border }) => border || '0px'};
   border-style: ${({ borderStyle }) => borderStyle || 'none'};
   border-radius: ${({ radius }) => radius || '4px'};
@@ -62,7 +62,7 @@ export const NeogradReverseButton = styled.button`
   cursor: pointer;
   &:hover {
     background: linear-gradient(60deg, ${({ bgPrimary }) => bgPrimary}, ${({ bgSecondary }) => bgSecondary});
-    box-shadow: 1px 1px 40px ${({ bgPrimary }) => bgPrimary || '#fff'} inset;
+    box-shadow: -5px -5px 40px ${({ bgPrimary }) => bgPrimary || '#fff'}, 5px 5px 40px ${({ bgSecondary }) => bgSecondary || '#fff'};
     color: #000;
   }
 `
@@ -571,7 +571,7 @@ export const SurroundBorderButton = styled.button`
     border-radius: inherit;
     width: 0;
     height: 0;
-    border: 5px solid ${({ bgPrimary }) => bgPrimary};
+    border: 5px solid ${({ bgSecondary }) => bgSecondary};
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

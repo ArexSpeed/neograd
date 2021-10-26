@@ -13,7 +13,7 @@ const ButtonRSC = () => {
             <span className="codeBox__snippet-title">{`import styled from 'styled-components';`}</span>
             <br />
             <span className="codeBox__snippet-title">{"export const Button = styled.button`"}</span>
-              <span>background-color: {'${({ bgPrimary }) => bgPrimary || "#fff"}'};</span>
+              {button.colors.c1 === button.colors.c2 ? (<span>background-color: {'${({ bgPrimary }) => bgPrimary || "#fff"}'};</span>) : (<span>background: {'linear-gradient(90deg, ${({ bgPrimary }) => bgPrimary}, ${({ bgSecondary }) => bgSecondary}'};</span>)}
               <span>color: {'${({ color }) => color || "#000000"}'};</span>
               <span>width: {'${({ width }) => width || "150px"}'};</span>
               <span>height: {'${({ height }) => height || "50px"}'};</span>
@@ -27,7 +27,7 @@ const ButtonRSC = () => {
             <span className="codeBox__snippet-comment">//React button</span>
             <span className="codeBox__snippet-title">{`<Button`}</span>
               <span>bgPrimary="{button.colors.c1}"</span>
-              <span>bgSecondary="{button.colors.c2}" </span>
+              {button.colors.c1 !== button.colors.c2 && <span>bgSecondary="{button.colors.c2}"</span>}
               <span>width="{button.sizes.width}px"</span>
               <span>height="{button.sizes.height}px"</span>
               <span>borderStyle="{button.border.type}"</span>
@@ -43,7 +43,7 @@ const ButtonRSC = () => {
             <span className="codeBox__snippet-title">{`import styled from 'styled-components';`}</span>
             <br />
             <span className="codeBox__snippet-title">{"export const Button = styled.button`"}</span>
-              <span>background-color: transaprent;</span>
+              <span>background-color: transparent;</span>
               <span>color: {'${({ color }) => color || "#000000"}'};</span>
               <span>width: {'${({ width }) => width || "150px"}'};</span>
               <span>height: {'${({ height }) => height || "50px"}'};</span>
@@ -53,7 +53,7 @@ const ButtonRSC = () => {
               <span>transition: all 250ms ease-in-out;</span>
               <span>cursor: pointer;</span>
               <span>{`&:hover {`}</span>
-                <span>background-color: {'${({ bgPrimary }) => bgPrimary || "#fff"}'};</span>
+                {button.colors.c1 === button.colors.c2 ? (<span>background-color: {'${({ bgPrimary }) => bgPrimary || "#fff"}'};</span>) : (<span>background: {'linear-gradient(90deg, ${({ bgPrimary }) => bgPrimary}, ${({ bgSecondary }) => bgSecondary}'};</span>)}
                 <span>color: #000;</span>
                 <span>transition: all 250ms ease-in-out;</span>
               <span>{"}"}</span>
@@ -63,7 +63,7 @@ const ButtonRSC = () => {
             <span className="codeBox__snippet-comment">//React button</span>
             <span className="codeBox__snippet-title">{`<Button`}</span>
               <span>bgPrimary="{button.colors.c1}"</span>
-              <span>bgSecondary="{button.colors.c2}" </span>
+              {button.colors.c1 !== button.colors.c2 && <span>bgSecondary="{button.colors.c2}"</span>}
               <span>width="{button.sizes.width}px"</span>
               <span>height="{button.sizes.height}px"</span>
               <span>borderStyle="{button.border.type}"</span>
@@ -84,7 +84,7 @@ const ButtonRSC = () => {
               <span>text-align: center;</span>
               <span>width: {'${({ width }) => width || "150px"}'};</span>
               <span>height: {'${({ height }) => height || "50px"}'};</span>
-              <span>box-shadow: {'1px 1px 40px ${({ bgPrimary }) => bgPrimary || "#fff"} inset;'}</span>
+              <span>box-shadow: {'-5px -5px 40px ${({ bgPrimary }) => bgPrimary || "#fff"}, 5px 5px 40px ${({ bgSecondary }) => bgSecondary || "#fff"};'}</span>
               <span>border-radius: {'${({ radius }) => radius || "4px"}'};</span>
               <span>border-style: {'${({ borderStyle }) => borderStyle || "none"}'};</span>
               <span>border: {'${({ border }) => border || "0px"}'};</span>
@@ -92,7 +92,7 @@ const ButtonRSC = () => {
               <span>cursor: pointer;</span>
               <span>{`&:hover {`}</span>
                 <span>background: transparent;</span>
-                <span>box-shadow: 0 0 10px 0{" "}{'${({ bgPrimary }) => bgPrimary || "#fff"} inset, 0 0 10px 3px ${({ bgSecondary }) => bgSecondary || "#fff"};'}</span>
+                <span>box-shadow: {'-5px 0px 10px ${({ bgPrimary }) => bgPrimary || "#fff"}, 5px 0px 10px ${({ bgSecondary }) => bgSecondary || "#fff"};'}</span>
                 <span>color: {'${({ bgPrimary }) => bgPrimary || "#000000"};'}</span>
                 <span>transition: all 250ms ease-in-out;</span>
               <span>{"}"}</span>
@@ -123,7 +123,7 @@ const ButtonRSC = () => {
               <span>text-align: center;</span>
               <span>width: {'${({ width }) => width || "150px"}'};</span>
               <span>height: {'${({ height }) => height || "50px"}'};</span>
-              <span>box-shadow: {'1px 1px 10px ${({ bgPrimary }) => bgPrimary || "#fff"} inset, 0 0 10px 3px ${({ bgSecondary }) => bgSecondary || "#fff"};'}</span>
+              <span>box-shadow: {'-5px 0px 10px ${({ bgPrimary }) => bgPrimary || "#fff"}, 5px 0px 10px ${({ bgSecondary }) => bgSecondary || "#fff"};'}</span>
               <span>border-radius: {'${({ radius }) => radius || "4px"}'};</span>
               <span>border-style: {'${({ borderStyle }) => borderStyle || "none"}'};</span>
               <span>border: {'${({ border }) => border || "0px"}'};</span>
@@ -131,7 +131,7 @@ const ButtonRSC = () => {
               <span>cursor: pointer;</span>
               <span>{`&:hover {`}</span>
                 <span>background: {"linear-gradient(60deg, ${({ bgPrimary }) => bgPrimary}, ${({ bgSecondary }) => bgSecondary});"}</span>
-                <span>box-shadow: 1 1 40px {'${({ bgPrimary }) => bgPrimary || "#fff"} inset; '}</span>
+                <span>box-shadow: {'-5px -5px 40px ${({ bgPrimary }) => bgPrimary || "#fff"}, 5px 5px 40px ${({ bgSecondary }) => bgSecondary || "#fff"};'}</span>
                 <span>color: {'"#000000";'}</span>
                 <span>transition: all 250ms ease-in-out;</span>
               <span>{"}"}</span>
@@ -911,7 +911,7 @@ const ButtonRSC = () => {
                 <span>border-radius: inherit;</span>
                 <span>width: 0;</span>
                 <span>height: 0;</span>
-                <span>border: {"5px solid ${({ bgPrimary }) => bgPrimary};"}</span>
+                {button.colors.c1 === button.colors.c2 ? (<span>border: {"5px solid ${({ bgPrimary }) => bgPrimary};"}</span>) : (<span>border: {"5px solid ${({ bgSecondary }) => bgSecondary};"}</span>)}
                 <span>top: 50%;</span>
                 <span>left: 50%;</span>
                 <span>transform: translate(-50%, -50%);</span>
@@ -929,7 +929,7 @@ const ButtonRSC = () => {
             <span className="codeBox__snippet-comment">//React button</span>
             <span className="codeBox__snippet-title">{`<Button`}</span>
             <span>bgPrimary="{button.colors.c1}"</span>
-            <span>bgSecondary="{button.colors.c2}" </span>
+            {button.colors.c1 !== button.colors.c2 && <span>bgSecondary="{button.colors.c2}" </span>}
             <span>width="{button.sizes.width}px"</span>
             <span>height="{button.sizes.height}px"</span>
             <span>radius="{button.radius.top}px {button.radius.right}px {button.radius.bottom}px {button.radius.left}px"</span>
