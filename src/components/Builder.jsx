@@ -9,7 +9,7 @@ const Builder = () => {
   const [activeNav, setActiveNav] = useState('Buttons');
   const [activeViewCode, setActiveViewCode] = useState('View');
   return (
-    <section className="builder">
+    <section className="builder" id="builder">
       <div className="builder__nav">
         <button className={`builder__nav-item ${activeNav === 'Buttons' && 'active'}`} onClick={() => setActiveNav('Buttons')}>
           Buttons

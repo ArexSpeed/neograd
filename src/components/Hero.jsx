@@ -1,4 +1,4 @@
-
+import { Link } from 'react-scroll';
 const Hero = () => {
   return (
     <div className="hero">
@@ -8,9 +8,14 @@ const Hero = () => {
       <div className="hero__description">
         CSS effects for your website
       </div>
-      <button className="hero__button">
+      <Link  
+        to='builder' 
+        smooth={true}
+        duration={500} 
+        className="hero__button"
+      >
         Create
-      </button>
+      </Link>
     </div>
   )
 };
