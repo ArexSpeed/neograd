@@ -14,12 +14,12 @@ const Builder = () => {
         <button className={`builder__nav-item ${activeNav === 'Buttons' && 'active'}`} onClick={() => setActiveNav('Buttons')}>
           Buttons
         </button>
-        <button className={`builder__nav-item ${activeNav === 'Inputs' && 'active'}`} onClick={() => setActiveNav('Inputs')}>
+        {/* <button className={`builder__nav-item ${activeNav === 'Inputs' && 'active'}`} onClick={() => setActiveNav('Inputs')}>
           Inputs
         </button>
         <button className={`builder__nav-item ${activeNav === 'Text' && 'active'}`} onClick={() => setActiveNav('Text')}>
           Text
-        </button>
+        </button> */}
       </div>
       <div className="builder__container">
         <div className="builder__settings">
